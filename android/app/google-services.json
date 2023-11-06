@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "369457486334",
+    "project_id": "sstaxi-71298",
+    "storage_bucket": "sstaxi-71298.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369457486334:android:24e95148ac9d1f307208af",
+        "android_client_info": {
+          "package_name": "com.example.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC76gaD0b0BzsKe7e5WfajStdy5ZF81go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369457486334:android:5edea28f3905b7df7208af",
+        "android_client_info": {
+          "package_name": "com.example.sstaxi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC76gaD0b0BzsKe7e5WfajStdy5ZF81go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

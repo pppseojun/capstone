@@ -14,9 +14,15 @@ class mapStartPoint extends StatefulWidget {
   State<mapStartPoint> createState() => _mapStartPointState();
 }
 
-class _mapStartPointState extends State<mapStartPoint> {
+class _mapStartPointState extends State<mapStartPoint>
+    with TickerProviderStateMixin {
   bool isMove = false;
   static final LatLng myLating = LatLng(37.275924, 127.132335);
+
+  // late final AnimationController _controller = AnimationController(
+  //   duration: const Duration(seconds: 10),
+  //   vsync: this,
+  // )..repeat();
 
   static final CameraPosition _initialPosition =
       CameraPosition(target: myLating, zoom: 15);
@@ -79,15 +85,17 @@ class _mapStartPointState extends State<mapStartPoint> {
       ),
       body: Stack(
         children: [
+          //구글 맵 실행하는 Section
           GoogleMap(
             mapType: MapType.normal,
             initialCameraPosition: _initialPosition,
             markers: Set.from(_markers),
             zoomControlsEnabled: false,
-            myLocationButtonEnabled: true,
+            // myLocationButtonEnabled: true,
             myLocationEnabled: true,
             onCameraMove: ((_position) => _updatePosition(_position)),
           ),
+
           Container(
             padding: EdgeInsets.fromLTRB(0, 0, 20, 20),
             child: Align(
@@ -111,6 +119,23 @@ class _mapStartPointState extends State<mapStartPoint> {
                 icon: Icon(Icons.add),
                 label: Text("현재 위치로 출발지 설정"),
               ),
+            ),
+          ),
+          Align(
+            // alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: EdgeInsets.only(top: 0),
+              child: Center(
+                  child: Text(
+                "현재 위치",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                border: Border.all(color: Colors.blue),
+              ),
+              width: MediaQuery.of(context).size.width,
+              height: 50,
             ),
           ),
         ],

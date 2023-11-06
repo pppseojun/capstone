@@ -1,6 +1,8 @@
 import 'package:capstone/firebase_options.dart';
 import 'package:capstone/screen/addGroup_Screen.dart';
 import 'package:capstone/screen/index_screen.dart';
+import 'package:capstone/screen/main_screen.dart';
+import 'package:capstone/screen/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.yellow),
       // home: LoginSignupScreen(),
       // home: mapScreen(),
-      home: AddGroupScreen(),
+      // home: AddGroupScreen(),
+      home: mapStartPoint(),
     );
   }
 }

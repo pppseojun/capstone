@@ -68,50 +68,116 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                   width: 200,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: '출발지',
-                    labelStyle: TextStyle(color: Colors.black),
-                    hintText: '어디서 출발할까요?',
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
+
+              //출발지 Text
+              GestureDetector(
+                onTap: () {
+                  print("출발지");
+                },
+                child: Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Icon(
+                          Icons.add_location,
+                          color: Colors.blue,
+                          size: 20,
+                        ),
+                      ),
+                      Text(
+                        "출발지",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
                   ),
-                  keyboardType: TextInputType.text,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    border: Border.all(color: Colors.blue),
+                  ),
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 60,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    labelText: '목적지',
-                    labelStyle: TextStyle(color: Colors.black),
-                    hintText: '목적지가 어디인가요?',
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      borderSide: BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              //도착지 Text
+              GestureDetector(
+                onTap: () {
+                  print("도착지");
+                },
+                child: Container(
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Icon(
+                          Icons.add_location,
+                          color: Colors.blue,
+                          size: 20,
+                        ),
+                      ),
+                      Text(
+                        "목적지",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
                   ),
-                  keyboardType: TextInputType.text,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    border: Border.all(color: Colors.blue),
+                  ),
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 60,
                 ),
               ),
+              // Container(
+              //   padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       labelText: '출발지',
+              //       labelStyle: TextStyle(color: Colors.black),
+              //       hintText: '어디서 출발할까요?',
+              //       focusedBorder: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //         borderSide: BorderSide(width: 1, color: Colors.blue),
+              //       ),
+              //       enabledBorder: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //         borderSide: BorderSide(width: 1, color: Colors.blue),
+              //       ),
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //       ),
+              //     ),
+              //     keyboardType: TextInputType.text,
+              //   ),
+              // ),
+              // Container(
+              //   padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       labelText: '목적지',
+              //       labelStyle: TextStyle(color: Colors.black),
+              //       hintText: '목적지가 어디인가요?',
+              //       focusedBorder: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //         borderSide: BorderSide(width: 1, color: Colors.blue),
+              //       ),
+              //       enabledBorder: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //         borderSide: BorderSide(width: 1, color: Colors.blue),
+              //       ),
+              //       border: OutlineInputBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              //       ),
+              //     ),
+              //     keyboardType: TextInputType.text,
+              //   ),
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -124,9 +190,12 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                       });
                     },
                   ),
-                  Text(
-                    '1명',
-                    style: TextStyle(fontSize: 20),
+                  Container(
+                    padding: EdgeInsets.only(left: 30),
+                    child: Text(
+                      '1명',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                   Radio<int>(
                     value: 2,

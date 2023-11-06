@@ -157,6 +157,8 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                 ],
               ),
               Text('예상 소요시간:'),
+              Text('예상 비용:'),
+              Text('부담 비용:'),
             ],
           ),
         ),

@@ -20,10 +20,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'same same taxi',
       theme: ThemeData(primarySwatch: Colors.yellow),
+      // 로그인 화면
       // home: LoginSignupScreen(),
+
+      // 메인 지도 화면
       // home: mapScreen(),
-      // home: AddGroupScreen(),
-      home: mapStartPoint(),
+
+      // 그룹 추가 화면
+      home: AddGroupScreen(),
+
+      // 그룹 추가 -> 출발지 설정 지도 화면
+      // home: mapStartPoint(),
     );
   }
 }

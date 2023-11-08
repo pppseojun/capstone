@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:ffi';
 import 'dart:math';
 
+import 'package:capstone/screen/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:http/retry.dart';
 
 class AddGroupScreen extends StatefulWidget {
   const AddGroupScreen({super.key});
@@ -17,12 +20,20 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
   final _authentication = FirebaseAuth.instance;
   User? loggedUser;
   int? selectedPeople;
+  var StartPoint = '';
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
-  void initState() {
+  void initState() async {
     // TODO: implement initState
     super.initState();
     getCurrentUser();
+  }
+
+  void _StartPointAddress() async {
+    var result =
+        await _firestore.collection('location').doc('startPoint').get();
+    print("${result.get('sp')}");
   }
 
   void getCurrentUser() {
@@ -68,11 +79,14 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                   width: 200,
                 ),
               ),
-
               //출발지 Text
               GestureDetector(
                 onTap: () {
                   print("출발지");
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const mapStartPoint()));
                 },
                 child: Container(
                   child: Row(
@@ -84,10 +98,12 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                           size: 20,
                         ),
                       ),
-                      Text(
-                        "출발지",
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          "출발지: $StartPoint",
+                        ),
+                      )
                     ],
                   ),
                   padding: EdgeInsets.all(15),
@@ -191,7 +207,6 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
                     },
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 30),
                     child: Text(
                       '1명',
                       style: TextStyle(fontSize: 20),
@@ -228,6 +243,18 @@ class _AddGroupScreenState extends State<AddGroupScreen> {
               Text('예상 소요시간:'),
               Text('예상 비용:'),
               Text('부담 비용:'),
+              ElevatedButton(
+                  onPressed: () async {
+                    var result = await _firestore
+                        .collection('location')
+                        .doc('startPoint')
+                        .get();
+                    print("${result.get('sp')}");
+                    setState(() {
+                      StartPoint = result.get('sp');
+                    });
+                  },
+                  child: Text('데이터 불러오기'))
             ],
           ),
         ),

@@ -6,8 +6,8 @@
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyB2W6uhlp3i5-w4nT14P7_jt1TUe_RnI8c"/>
+        <!-- <meta-data android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyAK78IMsebRMkh3PJIv4oxdlwkyo9mOxRQ"/> -->
 
         <activity
             android:name=".MainActivity"
@@ -39,6 +39,6 @@
             android:name="com.naver.maps.map.ClIENT_ID"
             android:value="ojm54eg4q9"/>
         <meta-data android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyB2W6uhlp3i5-w4nT14P7_jt1TUe_RnI8c"/>
+                android:value="AIzaSyAK78IMsebRMkh3PJIv4oxdlwkyo9mOxRQ"/> 
     </application>
 </manifest>

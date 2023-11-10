@@ -11,14 +11,14 @@ import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'addGroup_Screen.dart';
 
-class mapStartPoint extends StatefulWidget {
-  const mapStartPoint({super.key});
+class mapEndPoint extends StatefulWidget {
+  const mapEndPoint({super.key});
 
   @override
-  State<mapStartPoint> createState() => _mapStartPointState();
+  State<mapEndPoint> createState() => _mapEndPointState();
 }
 
-class _mapStartPointState extends State<mapStartPoint>
+class _mapEndPointState extends State<mapEndPoint>
     with TickerProviderStateMixin {
   bool isMove = false;
   static final LatLng myLating = LatLng(37.275924, 127.132335);
@@ -59,7 +59,7 @@ class _mapStartPointState extends State<mapStartPoint>
 
   //현재 위치 주소 불러오는 함수
   Future<void> _updateAddress(CameraPosition _position) async {
-    final apiKey = 'AIzaSyB2W6uhlp3i5-w4nT14P7_jt1TUe_RnI8c';
+    final apiKey = 'AIzaSyAK78IMsebRMkh3PJIv4oxdlwkyo9mOxRQ';
     final apiUrl =
         'https://maps.googleapis.com/maps/api/geocode/json?latlng=${_position.target.latitude},${_position.target.longitude}&key=$apiKey&language=ko';
 
@@ -105,7 +105,7 @@ class _mapStartPointState extends State<mapStartPoint>
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '출발지',
+          '목적지',
           style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -148,7 +148,7 @@ class _mapStartPointState extends State<mapStartPoint>
             ),
           ),
 
-          //출발지 설정 버튼
+          //목적지 설정 버튼
           Container(
             padding: EdgeInsets.fromLTRB(0, 0, 20, 20),
             child: Align(
@@ -163,14 +163,12 @@ class _mapStartPointState extends State<mapStartPoint>
                   // );
                   await _firestore
                       .collection('location')
-                      .doc('startPoint')
-                      .set({"sp": "$currentAddress"});
+                      .doc('endPoint')
+                      .set({"ep": "$currentAddress"});
 
                   Navigator.pop(context);
 
-                  setState(() {
-                    
-                  });
+                  setState(() {});
 
                   print("$currentAddress");
                 },
@@ -182,7 +180,7 @@ class _mapStartPointState extends State<mapStartPoint>
                   backgroundColor: Colors.black,
                 ),
                 icon: Icon(Icons.add),
-                label: Text("이곳을 출발지 설정"),
+                label: Text("이곳을 목적지로 설정"),
               ),
             ),
           ),

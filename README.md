@@ -1,6 +1,6 @@
-# capstone
+# Same Same Taxi
 
-A new Flutter project.
+Flutter를 활용한 택시 매칭 서비스
 
 ## Getting Started
 
